@@ -2,12 +2,12 @@ package storage
 
 import (
 	"errors"
+	"github.com/MadiyarOne/oz1/internal/file"
 	"github.com/google/uuid"
-	"oz1/internal/file"
 )
 
 type Storage struct {
-	files map[uuid.UUID]*file.File
+	files map[uuid.UUID]*file.File // map of files, where key is uuid and value is
 }
 
 func NewStorage() *Storage {

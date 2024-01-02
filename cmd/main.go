@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"oz1/internal/storage"
+	"github.com/MadiyarOne/oz1/internal/storage"
 )
 
 func main() {

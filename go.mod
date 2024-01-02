@@ -1,4 +1,4 @@
-module
+module github.com/MadiyarOne/oz1
 
 go 1.21
 
