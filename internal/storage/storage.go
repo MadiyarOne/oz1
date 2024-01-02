@@ -7,7 +7,7 @@ import (
 )
 
 type Storage struct {
-	files map[uuid.UUID]*file.File // map of files, where key is uuid and value is
+	files map[string]*file.File // map of files, where key is uuid and value is
 }
 
 func NewStorage() *Storage {
@@ -17,14 +17,14 @@ func NewStorage() *Storage {
 func (s *Storage) UploadFile(name string, blob []byte) (uuid.UUID, error) {
 	var newFile = file.NewFile(name, blob)
 	if s.files == nil {
-		s.files = make(map[uuid.UUID]*file.File)
+		s.files = make(map[string]*file.File)
 	}
-	s.files[newFile.Id] = newFile
+	s.files[name] = newFile
 	return newFile.Id, nil
 }
 
-func (s *Storage) GetFile(id uuid.UUID) (*file.File, error) {
-	foundFile, ok := s.files[id]
+func (s *Storage) GetFile(fileName string) (*file.File, error) {
+	foundFile, ok := s.files[fileName]
 	if !ok {
 		return nil, errors.New("file not found")
 	}

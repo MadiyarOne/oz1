@@ -7,9 +7,10 @@ import (
 
 func main() {
 	fileStorage := storage.NewStorage()
-	uploadFileId, _ := fileStorage.UploadFile("test.txt", []byte("Hello World!"))
+	fileName := "test.txt"
+	fileStorage.UploadFile(fileName, []byte("Hello World!"))
 
-	foundFile, err := fileStorage.GetFile(uploadFileId)
+	foundFile, err := fileStorage.GetFile(fileName)
 	if err != nil {
 		panic(err)
 	}
